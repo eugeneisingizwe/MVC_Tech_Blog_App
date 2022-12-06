@@ -7,7 +7,6 @@ Comment.init(
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         primaryKey: true,
         autoIncrement: true,
       },
@@ -40,7 +39,7 @@ Comment.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'post',
+      modelName: 'comment',
     }
   );
   

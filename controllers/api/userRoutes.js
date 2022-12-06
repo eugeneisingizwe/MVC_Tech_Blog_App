@@ -70,27 +70,53 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.post("/", async (req, res) => {
+    try {
+      const userData = await User.create({
+        where: {
+          email: req.body.email,
+          password: req.password
+        }
+      })
+      req.session.save(() => {
 
-  router.post("/", withAuth, (req, res) => {
-    User.create({
-    email: req.body.email,
-    password: req.password
+        req.session.user_id = data.id;
+        req.session.email = data.email;
+        req.session.loggedIn = true;
 
-    })
+        res.json(userData);
+      })
 
-    }).then(data => {
-        req.session.save(() => {
+    } catch (err) {
+      
+      res.status(00).json(err)
+    }
+  })
 
-            req.session.user_id = data.id;
-            req.session.email = data.email;
-            req.session.loggedIn = true;
 
-            res.json(data);
-        });
-    }).catch(err => {
-        console.log(err)
-        res.status(500).json(err);
-    });
+  // router.post("/", withAuth, (req, res) => {
+  //   User.create({
+  //   email: req.body.email,
+  //   password: req.password
+
+  //   })
+
+  //   }).then(data => {
+  //       req.session.save(() => {
+
+  //           req.session.user_id = data.id;
+  //           req.session.email = data.email;
+  //           req.session.loggedIn = true;
+
+  //           res.json(data);
+  //       });
+
+  //     })
+   
+  //   .catch(err => {
+  //       console.log(err)
+  //       res.status(500).json(err);
+  //   });
 
     
     router.post('/login', async (req, res) => {
