@@ -75,7 +75,9 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 The following animation demonstrates the application functionality:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./images/14-mvc-homework-demo-01.gif) 
+https://mvc-tech-blog-123.herokuapp.com/
+
+![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./images/mvc-tech-blog-123.herokuapp.com_.png) 
 
 
 
